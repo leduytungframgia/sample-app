@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
 
   root 'static_pages#home'
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
