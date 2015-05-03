@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   before_action :correct_user,   only: :destroy
   
   def show
-    #binding.pry
+    
     @entry = Entry.find(params[:id])
     @user = @entry.user
     
@@ -23,7 +23,8 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
     flash[:success] = "Entry deleted"
-    redirect_to request.referrer || root_url
+    redirect_to current_user
+    #redirect_to request.referrer
   end
   
     private
