@@ -1,0 +1,5 @@
+<%= form_for([@micropost,@micropost.comments.build]) do |f|%>
+  <%= f.text_area :content%><br>
+  <%= f.submit %>
+  <%= f.hidden_field :micropost_id, value:@micropost.id  %>
+<%end%>
