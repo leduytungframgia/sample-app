@@ -6,6 +6,7 @@ class Entry < ActiveRecord::Base
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 1400 }
   validate  :picture_size
+  validates  :title, presence: true, length: { maximum: 150 }
 
   private
 

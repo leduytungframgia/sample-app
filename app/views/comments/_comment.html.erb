@@ -1,5 +1,6 @@
 <p>
-  <strong><%= User.find(comment.user_id).name%></strong>
+  <%@user = comment.user%>
+  <strong><%= @user.name%></strong>
   <%= comment.content %>
-  
+
 </p>

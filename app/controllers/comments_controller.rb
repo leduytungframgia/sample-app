@@ -8,6 +8,12 @@ class CommentsController < ApplicationController
     redirect_to entry_path(@entry)
   end
   
+  def destroy
+    @comment.destroy
+    flash[:success] = "Comment deleted"
+    redirect_to entry
+    #redirect_to request.referrer
+  end
   
   private
     def comment_params
