@@ -1,16 +1,32 @@
 <% provide(:title, @entry.content) %>
-  <%= link_to gravatar_for(@entry.user, size: 50),@user %>
-  <span class="user"><%= link_to @user.name, @user %></span>
-  <span class="content">
-    <p><%= @entry.content %></p>
-    <%= image_tag @entry.picture.url if @entry.picture? %>
-  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(@entry.created_at) %> ago.
-    <% if current_user?(@entry.user) %>
-      <%= link_to "Delete", @entry, method: :delete,
+
+   <p><%= link_to gravatar_for(@entry.user, size: 50), @entry.user %></p>
+  
+    
+    
+    <div class="panel panel-info">
+        <div class="alert alert-info" role="alert"><span class="user">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <%= link_to @entry.user.name, @entry.user %>
+          <h3><%= link_to @entry.title, @entry %></h3></span>
+          
+          
+          <span class="timestamp">
+          Posted <%= time_ago_in_words(@entry.created_at) %> ago.
+          <% if current_user?(@entry.user) %>
+          <%= link_to "Delete", @entry, method: :delete,
                                        data: { confirm: "You sure?" } %>
-    <% end %>
+          <% end %>
+          </span>
+        </div>
+      
+        <span class="content">
+          <%= @entry.content %>
+          <%= image_tag @entry.picture.url if @entry.picture? %>
+          <br>
+        </span>
+    </div>
+    
     <h3>Comment: </h3>
     <%= render @entry.comments %>
     <%= render 'comments/form'%>
