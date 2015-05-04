@@ -1,5 +1,7 @@
+<% if logged_in? %>
 <%= form_for([@entry,@entry.comments.build]) do |f|%>
   <%= f.text_area :content%><br>
   <%= f.submit %>
   <%= f.hidden_field :entry_id, value:@entry.id  %>
+<%end%>
 <%end%>
