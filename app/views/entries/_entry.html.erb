@@ -1,14 +1,11 @@
 <li id="entry-<%= entry.id %>">
   <p><%= link_to gravatar_for(entry.user, size: 50), entry.user %></p>
   
-
-    
     <div class="panel panel-info">
         <div class="alert alert-info" role="alert"><span class="user">
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           <%= link_to entry.user.name, entry.user %>
           <h3><%= link_to entry.title, entry %></h3></span>
-          
           
           <span class="timestamp">
           Posted <%= time_ago_in_words(entry.created_at) %> ago.
@@ -28,7 +25,4 @@
         </span>
     </div>
     
-
-
-
 </li>

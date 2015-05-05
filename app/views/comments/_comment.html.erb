@@ -1,5 +1,15 @@
 <p>
   <%@user = comment.user%>
-  <strong><%= @user.name%></strong>
-  <%= comment.content %>
+  <p><%= link_to gravatar_for(@user, size: 50), @user %></p>
+  
+  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          <%= link_to @user.name, @user %>
+  <% if current_user?(@user) %>
+  
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  
+          <%= link_to "Delete", comment, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+          <% end %>
+  <p><%= comment.content %></p>
 </p>

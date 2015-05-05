@@ -9,9 +9,11 @@ class CommentsController < ApplicationController
   end
   
   def destroy
+    #binding.pry
+    @comment = Comment.find(params[:id])
     @comment.destroy
     flash[:success] = "Comment deleted"
-    redirect_to entry
+    redirect_to @comment.entry
     #redirect_to request.referrer
   end
   
